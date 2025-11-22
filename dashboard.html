@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TAGUM UYNITE - Admin Panel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="app-body" data-theme="dark">
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark small">
+          <img src="images/LOGO.png" alt="TAGUM UYNITE logo" />
+        </div>
+        <span class="sidebar-title">
+          <span class="brand-part">TAGUM</span>
+          <span class="brand-letter brand-u">U</span>
+          <span class="brand-letter brand-y">Y</span>
+          <span class="brand-part">NITE</span>
+        </span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-view="dashboard">
+          <span>DASHBOARD</span>
+        </a>
+        <a href="#" class="nav-item" data-view="reports">
+          <span>REPORTS</span>
+        </a>
+        <a href="#" class="nav-item" data-view="records">
+          <span>RECORDS</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="btn-ghost" id="logoutBtn">Logout</button>
+      </div>
+    </aside>
+
+    <main class="app-main">
+      <header class="app-header">
+        <div>
+          <h1 id="viewTitle">Dashboard</h1>
+          <p class="muted" id="viewSubtitle">Overview of your admin panel.</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn-outline theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">
+            <span class="theme-icon"></span>
+          </button>
+        </div>
+      </header>
+      <section class="view" id="view-dashboard">
+        <section class="grid grid-3">
+          <div class="card kpi">
+            <span class="kpi-label">Total Reports</span>
+            <span class="kpi-value">326</span>
+            <span class="kpi-trend positive">+18% this month</span>
+          </div>
+          <div class="card kpi">
+            <span class="kpi-label">Open / In-Progress</span>
+            <span class="kpi-value">74</span>
+            <span class="kpi-trend">38 open · 36 in-progress</span>
+          </div>
+          <div class="card kpi">
+            <span class="kpi-label">Resolved Issues</span>
+            <span class="kpi-value">252</span>
+            <span class="kpi-trend positive">+9 resolved today</span>
+          </div>
+        </section>
+
+        <section class="grid grid-2">
+          <div class="card table-card">
+            <div class="card-header">
+              <h2>Latest Community Reports</h2>
+              <button class="link-button">View all</button>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Category</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#R-2031</td>
+                  <td>Broken road</td>
+                  <td>Purok 3, Barangay A</td>
+                  <td><span class="badge badge-muted">Open</span></td>
+                </tr>
+                <tr>
+                  <td>#R-2032</td>
+                  <td>Electricity outage</td>
+                  <td>Purok 5, Barangay B</td>
+                  <td><span class="badge badge-success">Resolved</span></td>
+                </tr>
+                <tr>
+                  <td>#R-2033</td>
+                  <td>Sewage problem</td>
+                  <td>Zone 2, Barangay C</td>
+                  <td><span class="badge badge-muted">In-progress</span></td>
+                </tr>
+                <tr>
+                  <td>#R-2034</td>
+                  <td>Canal clogging</td>
+                  <td>Purok 1, Barangay D</td>
+                  <td><span class="badge badge-muted">Open</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card list-card">
+            <div class="card-header">
+              <h2>Quick Admin Actions</h2>
+            </div>
+            <ul class="list">
+              <li>Assign open reports to responders</li>
+              <li>Prioritize critical issues (flooding, no electricity)</li>
+              <li>Notify reporting citizen about status updates</li>
+              <li>Export weekly report for the mayor's office</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <section class="view hidden" id="view-reports">
+        <section class="grid grid-2">
+          <div class="card">
+            <div class="card-header">
+              <h2>Reports Summary</h2>
+            </div>
+            <p class="muted">Overview of all community issue reports across the city.</p>
+            <ul class="list">
+              <li>Filter by barangay, category, or date range</li>
+              <li>Identify hotspots for broken roads or flooding</li>
+              <li>Monitor which departments respond the fastest</li>
+            </ul>
+          </div>
+          <div class="card table-card">
+            <div class="card-header">
+              <h2>Reports by Category</h2>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Open</th>
+                  <th>In-Progress</th>
+                  <th>Resolved</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Broken roads</td>
+                  <td>14</td>
+                  <td>9</td>
+                  <td>63</td>
+                </tr>
+                <tr>
+                  <td>Electricity issues</td>
+                  <td>6</td>
+                  <td>8</td>
+                  <td>41</td>
+                </tr>
+                <tr>
+                  <td>Sewage system</td>
+                  <td>11</td>
+                  <td>7</td>
+                  <td>32</td>
+                </tr>
+                <tr>
+                  <td>Canal / drainage</td>
+                  <td>7</td>
+                  <td>5</td>
+                  <td>28</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="view hidden" id="view-records">
+        <section class="grid grid-2">
+          <div class="card table-card">
+            <div class="card-header">
+              <h2>All Report Records</h2>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Category</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#R-1998</td>
+                  <td>Broken road</td>
+                  <td>Barangay A, Purok 2</td>
+                  <td><span class="badge badge-success">Resolved</span></td>
+                </tr>
+                <tr>
+                  <td>#R-2005</td>
+                  <td>Electricity issue</td>
+                  <td>Barangay B, Purok 1</td>
+                  <td><span class="badge badge-muted">In-progress</span></td>
+                </tr>
+                <tr>
+                  <td>#R-2012</td>
+                  <td>Sewage problem</td>
+                  <td>Barangay C, Zone 4</td>
+                  <td><span class="badge badge-muted">Open</span></td>
+                </tr>
+                <tr>
+                  <td>#R-2020</td>
+                  <td>Canal clogging</td>
+                  <td>Barangay D, Purok 6</td>
+                  <td><span class="badge badge-success">Resolved</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card list-card">
+            <div class="card-header">
+              <h2>Record Management</h2>
+            </div>
+            <ul class="list">
+              <li>Search records by ID, location, or resident name</li>
+              <li>Update status (Open, In-progress, Resolved)</li>
+              <li>Attach notes from field inspectors</li>
+              <li>Archive old records after resolution</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+  </body>
+</html>
