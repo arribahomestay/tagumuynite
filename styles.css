@@ -142,32 +142,15 @@ a {
 }
 
 .media-copy {
-  margin-top: 72px;
-  max-width: 320px;
-}
-
-.media-copy h1 {
-  margin: 0 0 10px;
-  font-size: 28px;
-}
-
-.media-copy p {
-  margin: 0;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-}
-
-.media-footer {
-  font-size: 13px;
-  color: var(--color-text-muted);
-  opacity: 0.9;
+  display: none;
 }
 
 .auth-side-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 24px 36px 24px;
   background: radial-gradient(circle at top, #182b3cbb 0, #122333 55%, #0b1118 100%);
 }
 
@@ -175,16 +158,20 @@ a {
   width: 100%;
   max-width: 420px;
   padding: 40px 32px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .auth-form-card h2 {
   margin: 0 0 4px;
+  text-align: center;
 }
 
 .auth-subtitle {
   margin: 0 0 24px;
   font-size: 14px;
   color: var(--color-text-muted);
+  text-align: center;
 }
 
 .auth-form {
@@ -284,7 +271,7 @@ input:focus {
 }
 
 .auth-footer-text {
-  margin-top: 18px;
+  margin-top: 32px;
   font-size: 12px;
   color: var(--color-text-muted);
 }
@@ -815,15 +802,17 @@ body[data-theme="dark"] .theme-chip::before,
 
   .auth-side.auth-side-form {
     background: transparent;
-    padding-top: 0;
+    padding: 16px 24px 16px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   /* Pull form closer to logo on mobile */
   .auth-form-card {
-    margin-top: 0;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .app-main {
