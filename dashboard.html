@@ -32,7 +32,7 @@
         </a>
       </nav>
       <div class="sidebar-footer">
-        <button class="btn-ghost" id="logoutBtn">Logout</button>
+        <button class="btn-ghost logout-btn">Logout</button>
       </div>
     </aside>
 
@@ -43,9 +43,25 @@
           <p class="muted" id="viewSubtitle">Overview of your admin panel.</p>
         </div>
         <div class="header-actions">
-          <button class="btn-outline theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">
-            <span class="theme-icon"></span>
-          </button>
+          <div class="account-menu">
+            <button class="account-btn" id="accountBtn" aria-label="Open account menu">
+              <span class="account-avatar">A</span>
+            </button>
+            <div class="account-dropdown" id="accountDropdown">
+              <div class="account-header">
+                <div class="account-name">Admin</div>
+                <div class="account-email">admin@tagumuynite.com</div>
+              </div>
+              <button type="button" class="account-item">Profile settings</button>
+              <button type="button" class="account-item account-item-inline theme-row">
+                <span>Theme</span>
+                <span class="theme-chip theme-toggle" aria-label="Toggle light and dark mode">
+                  <span class="theme-label">Dark</span>
+                </span>
+              </button>
+              <button type="button" class="account-item account-logout logout-btn">Logout</button>
+            </div>
+          </div>
         </div>
       </header>
       <section class="view" id="view-dashboard">
@@ -239,6 +255,11 @@
         </section>
       </section>
     </main>
+    <nav class="mobile-bottom-nav">
+      <button class="mobile-nav-item active" data-view="dashboard">Dashboard</button>
+      <button class="mobile-nav-item" data-view="reports">Reports</button>
+      <button class="mobile-nav-item" data-view="records">Records</button>
+    </nav>
   </div>
   <script src="script.js"></script>
   </body>
