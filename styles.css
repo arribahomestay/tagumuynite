@@ -615,10 +615,25 @@ input:focus {
 @media (max-width: 900px) {
   .auth-wrapper {
     grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: auto;
+    background: transparent;
   }
 
   .auth-side-media {
-    display: none;
+    display: none; /* hide logo block on mobile */
+  }
+
+  .auth-side.auth-side-form {
+    background: transparent;
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Pull form closer to logo on mobile */
+  .auth-form-card {
+    margin-top: 0;
   }
 
   .app-layout {
@@ -631,6 +646,19 @@ input:focus {
 
   .nav-item span {
     font-size: 0;
+  }
+
+  /* Center headings on mobile login */
+  .auth-form-card h2,
+  .auth-form-card .auth-subtitle {
+    text-align: center;
+  }
+
+  /* Softer inputs on mobile (remove hard border look) */
+  .auth-form-card input[type="email"],
+  .auth-form-card input[type="password"] {
+    border: none;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6);
   }
 }
 
