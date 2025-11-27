@@ -3,61 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TAGUM UYNITE - Admin Login</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>TAGUM UYNITE - Loading...</title>
+  <meta http-equiv="refresh" content="0; url=pages/login.html" />
+  <script>
+    window.location.replace('pages/login.html');
+  </script>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #182b3c 0, #0b1118 45%, #000 100%);
+      color: #e5e7eb;
+    }
+    .fallback-link {
+      font-size: 14px;
+      color: #38bdf8;
+    }
+  </style>
 </head>
-<body class="auth-body">
-  <div class="auth-wrapper">
-    <div class="auth-side auth-side-media">
-      <div class="brand">
-        <div class="brand-mark">
-          <img src="images/LOGO.png" alt="TAGUM UYNITE logo" />
-        </div>
-        <div class="brand-text">
-          <span class="brand-name">
-            <span class="brand-part">TAGUM</span>
-            <span class="brand-letter brand-u">U</span>
-            <span class="brand-letter brand-y">Y</span>
-            <span class="brand-part">NITE</span>
-          </span>
-          <span class="brand-subtitle">Admin Control Center</span>
-        </div>
-      </div>
-      <div class="media-copy">
-        <h1>Manage everything in one place.</h1>
-        <p>Track dashboards, reports, and records with a clean, focused interface.</p>
-      </div>
-      <div class="media-footer">
-        <span>Secure admin access</span>
-      </div>
-    </div>
-    <div class="auth-side auth-side-form">
-      <div class="auth-form-card">
-        <h2>Admin Login</h2>
-        <p class="auth-subtitle">Sign in to access the admin dashboard.</p>
-        <form action="dashboard.html" method="GET" class="auth-form">
-          <div class="field-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="admin@example.com" required />
-          </div>
-          <div class="field-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="••••••••" required />
-          </div>
-          <div class="field-inline">
-            <label class="checkbox">
-              <input type="checkbox" />
-              <span>Remember me</span>
-            </label>
-            <a href="#" class="link-muted">Forgot password?</a>
-          </div>
-          <button type="submit" class="btn btn-primary">Sign In</button>
-        </form>
-      </div>
-      <p class="auth-footer-text">
-        &copy; 2025 TAGUM UYNITE. All rights reserved.
-      </p>
-    </div>
-  </div>
+<body>
+  <p class="fallback-link">Redirecting to login... If nothing happens, <a href="pages/login.html">click here</a>.</p>
 </body>
 </html>

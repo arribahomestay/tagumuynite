@@ -1,0 +1,76 @@
+:root {
+  --login-glow-color: rgba(56, 189, 248, 0.7); /* sky-400 tone */
+}
+
+.login-shell {
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+
+.login-shell.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.login-gradient {
+  position: relative;
+  overflow: hidden;
+}
+
+.login-gradient::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.25), transparent 55%),
+              radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.4), transparent 60%);
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  animation: login-orbit 16s linear infinite;
+}
+
+@keyframes login-orbit {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(10px, -8px, 0) rotate(8deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+}
+
+.login-input {
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  transition: box-shadow 180ms ease-out, transform 140ms ease-out;
+}
+
+.login-input:focus-visible {
+  box-shadow: 0 0 0 1px var(--login-glow-color), 0 0 18px rgba(16, 185, 129, 0.45);
+  transform: translateY(-1px);
+}
+
+.login-button {
+  box-shadow: 0 14px 35px rgba(56, 189, 248, 0.35);
+  transition: box-shadow 160ms ease-out, transform 120ms ease-out, filter 160ms ease-out;
+}
+
+.login-button:hover {
+  box-shadow: 0 18px 40px rgba(56, 189, 248, 0.5);
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.login-button:active {
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.35);
+  transform: translateY(0);
+}
+
+.login-meta-text {
+  letter-spacing: 0.18em;
+}
+
+@media (max-width: 768px) {
+  .login-shell {
+    border-radius: 1.5rem;
+  }
+
+  .login-mobile-pad {
+    padding-inline: 1.25rem;
+  }
+}
