@@ -1,0 +1,34 @@
+.rep-shell {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 380ms ease-out, transform 380ms ease-out;
+}
+
+.rep-shell.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rep-card {
+  backdrop-filter: blur(14px);
+}
+
+body[data-theme="light"] .rep-card {
+  background: #ffffff;
+  color: #020617;
+}
+
+body[data-theme="light"] {
+  background: radial-gradient(circle at top, #e5edf6 0, #cbd5f5 40%, #0b1120 100%);
+  color: #020617;
+}
+
+body[data-theme="light"] .rep-shell {
+  background: transparent;
+}
+
+body[data-theme="light"] #repAccountBtn {
+  background: #e5e7eb;
+  border-color: rgba(148, 163, 184, 0.8);
+  color: #020617;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TAGUM UYNITE - Reports</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/reports.css" />
+  <link rel="stylesheet" href="../assets/css/sidebar.css" />
+</head>
+<body data-theme="dark" data-page="reports" class="min-h-screen bg-slate-950 text-slate-100">
+  <div class="rep-shell min-h-screen grid dash-layout grid-cols-[260px_minmax(0,1fr)] bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+    <!-- Sidebar (loaded from sidebar.html) -->
+    <div id="sidebar-root"></div>
+
+    <!-- Main content -->
+    <main class="px-6 py-5 flex flex-col gap-5">
+      <header class="flex items-center justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-semibold">Reports</h1>
+          <p class="text-xs text-slate-400 mt-1">Detailed breakdown of city issue reports.</p>
+        </div>
+        <div class="relative z-50">
+          <button id="repAccountBtn" type="button" class="flex items-center justify-center w-9 h-9 rounded-full border border-slate-700/70 bg-slate-900/80 text-xs font-semibold">
+            A
+          </button>
+          <div id="repAccountMenu" class="hidden absolute right-0 mt-2 w-56 rounded-2xl border border-slate-800 bg-slate-950/95 shadow-2xl text-xs py-2">
+            <button type="button" class="w-full px-3 py-2 text-left hover:bg-slate-900/80">Profile settings</button>
+            <button type="button" class="w-full px-3 py-2 flex items-center justify-between hover:bg-slate-900/80 rep-theme-toggle">
+              <span>Theme</span>
+              <span class="dash-theme-icon"></span>
+            </button>
+            <button type="button" class="w-full px-3 py-2 text-left text-red-300 hover:bg-slate-900/80" id="repLogoutBtn">Logout</button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Example content -->
+      <section class="grid gap-4 lg:grid-cols-[1.5fr_minmax(0,1fr)]">
+        <section class="rep-card rounded-2xl border border-slate-800 bg-slate-900/70 px-4 py-4 flex flex-col gap-3 overflow-hidden text-xs">
+          <header class="flex items-center justify-between">
+            <h2 class="text-sm font-semibold">Reports by status</h2>
+            <span class="text-[11px] text-slate-400">Today</span>
+          </header>
+          <ul class="space-y-1 text-slate-300">
+            <li>Open reports: 38</li>
+            <li>In-progress reports: 36</li>
+            <li>Resolved reports: 252</li>
+          </ul>
+        </section>
+
+        <section class="rep-card rounded-2xl border border-slate-800 bg-slate-900/70 px-4 py-4 flex flex-col gap-3 text-xs">
+          <h2 class="text-sm font-semibold">Filters</h2>
+          <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            <label class="flex flex-col gap-1">
+              <span class="text-[11px] text-slate-400">Barangay</span>
+              <input type="text" class="rounded-lg border border-slate-700 bg-slate-900/80 px-2 py-1.5 text-xs text-slate-100" placeholder="All" />
+            </label>
+            <label class="flex flex-col gap-1">
+              <span class="text-[11px] text-slate-400">Category</span>
+              <input type="text" class="rounded-lg border border-slate-700 bg-slate-900/80 px-2 py-1.5 text-xs text-slate-100" placeholder="All" />
+            </label>
+          </div>
+          <button class="mt-2 inline-flex justify-center rounded-lg bg-sky-500 px-3 py-1.5 text-[11px] font-medium text-slate-900 hover:bg-sky-400">Apply filters</button>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="../assets/js/sidebar.js"></script>
+  <script src="../assets/js/reports.js"></script>
+</body>
+</html>

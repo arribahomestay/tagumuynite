@@ -1,0 +1,29 @@
+.app-sidebar {
+  backdrop-filter: blur(18px);
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: background 180ms ease-out, color 180ms ease-out, transform 180ms ease-out;
+}
+
+.sidebar-link:hover {
+  background: rgba(30, 64, 175, 0.4);
+  color: #e5e7eb;
+}
+
+.sidebar-link--active {
+  background: rgba(148, 163, 184, 0.12);
+  color: #e5e7eb;
+  transform: translateX(2px);
+}
+
+body[data-theme="light"] .app-sidebar {
+  background: radial-gradient(circle at top left, #1e293b 0, #020617 70%);
+}

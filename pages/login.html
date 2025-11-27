@@ -7,11 +7,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../assets/css/styles.css" />
   <link rel="stylesheet" href="../assets/css/login.css" />
-</head>
-<body class="min-h-screen text-slate-100 flex items-center justify-center px-4 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 login-mobile-pad">
+ </head>
+ <body data-theme="dark" class="min-h-screen text-slate-100 flex items-center justify-center px-4 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 login-mobile-pad">
+  <button type="button" class="login-theme-toggle" aria-label="Toggle theme">
+    <span class="login-theme-icon"></span>
+  </button>
   <div class="login-shell max-w-md w-full bg-slate-900/90 border border-slate-800/70 rounded-3xl shadow-2xl px-7 py-8 sm:px-9 sm:py-9">
     <div class="mb-6 flex items-center justify-center">
-      <img src="../assets/images/LOGO.png" alt="TAGUM UYNITE logo" class="w-28 h-28 sm:w-32 sm:h-32 object-contain" />
+      <img id="login-logo" src="../assets/images/TAGUM_DARK.png" alt="TAGUM UYNITE logo" class="w-28 h-28 sm:w-32 sm:h-32 object-contain login-logo-img" />
     </div>
 
     <form action="dashboard.html" method="GET" class="space-y-4 login-form">

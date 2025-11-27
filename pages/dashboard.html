@@ -3,264 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TAGUM UYNITE - Admin Panel</title>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <title>TAGUM UYNITE - Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/dashboard.css" />
+  <link rel="stylesheet" href="../assets/css/sidebar.css" />
 </head>
-<body class="app-body" data-theme="dark">
-  <div class="app-layout">
-    <aside class="sidebar">
-      <div class="sidebar-brand">
-        <div class="brand-mark small">
-          <img src="../assets/images/LOGO.png" alt="TAGUM UYNITE logo" />
-        </div>
-        <span class="sidebar-title">
-          <span class="brand-part">TAGUM</span>
-          <span class="brand-letter brand-u">U</span>
-          <span class="brand-letter brand-y">Y</span>
-          <span class="brand-part">NITE</span>
-        </span>
-      </div>
-      <nav class="sidebar-nav">
-        <a href="#" class="nav-item active" data-view="dashboard">
-          <span>DASHBOARD</span>
-        </a>
-        <a href="#" class="nav-item" data-view="reports">
-          <span>REPORTS</span>
-        </a>
-        <a href="#" class="nav-item" data-view="records">
-          <span>RECORDS</span>
-        </a>
-      </nav>
-      <div class="sidebar-footer">
-        <button class="btn-ghost logout-btn">Logout</button>
-      </div>
-    </aside>
+<body data-theme="dark" data-page="dashboard" class="min-h-screen bg-slate-950 text-slate-100">
+  <div class="dash-shell min-h-screen grid dash-layout grid-cols-[260px_minmax(0,1fr)] bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+    <!-- Sidebar (loaded from sidebar.html) -->
+    <div id="sidebar-root"></div>
 
-    <main class="app-main">
-      <header class="app-header">
+    <!-- Main content -->
+    <main class="px-6 py-5 flex flex-col gap-5">
+      <header class="flex items-center justify-between gap-4">
         <div>
-          <h1 id="viewTitle">Dashboard</h1>
-          <p class="muted" id="viewSubtitle">Overview of your admin panel.</p>
+          <h1 class="text-2xl font-semibold">Dashboard</h1>
+          <p class="text-xs text-slate-400 mt-1">Overview of reports and city issues.</p>
         </div>
-        <div class="header-actions">
-          <div class="account-menu">
-            <button class="account-btn" id="accountBtn" aria-label="Open account menu">
-              <span class="account-avatar">A</span>
+        <div class="relative">
+          <button id="dashAccountBtn" type="button" class="flex items-center justify-center w-9 h-9 rounded-full border border-slate-700/70 bg-slate-900/80 text-xs font-semibold">
+            A
+          </button>
+          <div id="dashAccountMenu" class="hidden absolute right-0 mt-2 w-56 rounded-2xl border border-slate-800 bg-slate-950/95 shadow-2xl text-xs py-2">
+            <button type="button" class="w-full px-3 py-2 text-left hover:bg-slate-900/80">Profile settings</button>
+            <button type="button" class="w-full px-3 py-2 flex items-center justify-between hover:bg-slate-900/80 dash-theme-toggle">
+              <span>Theme</span>
+              <span class="dash-theme-icon"></span>
             </button>
-            <div class="account-dropdown" id="accountDropdown">
-              <div class="account-header">
-                <div class="account-name">Admin</div>
-                <div class="account-email">admin@tagumuynite.com</div>
-              </div>
-              <button type="button" class="account-item">Profile settings</button>
-              <button type="button" class="account-item account-item-inline theme-row">
-                <span>Theme</span>
-                <span class="theme-chip theme-toggle" aria-label="Toggle light and dark mode">
-                  <span class="theme-label">Dark</span>
-                </span>
-              </button>
-              <button type="button" class="account-item account-logout logout-btn">Logout</button>
-            </div>
+            <button type="button" class="w-full px-3 py-2 text-left text-red-300 hover:bg-slate-900/80" id="dashLogoutBtn">Logout</button>
           </div>
         </div>
       </header>
-      <section class="view" id="view-dashboard">
-        <section class="grid grid-3">
-          <div class="card kpi">
-            <span class="kpi-label">Total Reports</span>
-            <span class="kpi-value">326</span>
-            <span class="kpi-trend positive">+18% this month</span>
-          </div>
-          <div class="card kpi">
-            <span class="kpi-label">Open / In-Progress</span>
-            <span class="kpi-value">74</span>
-            <span class="kpi-trend">38 open · 36 in-progress</span>
-          </div>
-          <div class="card kpi">
-            <span class="kpi-label">Resolved Issues</span>
-            <span class="kpi-value">252</span>
-            <span class="kpi-trend positive">+9 resolved today</span>
-          </div>
-        </section>
 
-        <section class="grid grid-2">
-          <div class="card table-card">
-            <div class="card-header">
-              <h2>Latest Community Reports</h2>
-              <button class="link-button">View all</button>
-            </div>
-            <table class="table">
-              <thead>
+      <!-- KPI row -->
+      <section class="grid gap-4 md:grid-cols-3">
+        <article class="dash-card rounded-2xl border border-slate-800 bg-slate-900/70 px-4 py-4 flex flex-col gap-1">
+          <p class="text-[11px] tracking-[0.18em] uppercase text-slate-400">Total Reports</p>
+          <p class="text-2xl font-semibold">326</p>
+          <p class="text-[11px] text-emerald-400">+18% this month</p>
+        </article>
+        <article class="dash-card rounded-2xl border border-slate-800 bg-slate-900/70 px-4 py-4 flex flex-col gap-1">
+          <p class="text-[11px] tracking-[0.18em] uppercase text-slate-400">Open / In-progress</p>
+          <p class="text-2xl font-semibold">74</p>
+          <p class="text-[11px] text-slate-400">38 open · 36 in-progress</p>
+        </article>
+        <article class="dash-card rounded-2xl border border-slate-800 bg-slate-900/70 px-4 py-4 flex flex-col gap-1">
+          <p class="text-[11px] tracking-[0.18em] uppercase text-slate-400">Resolved issues</p>
+          <p class="text-2xl font-semibold">252</p>
+          <p class="text-[11px] text-emerald-400">+9 resolved today</p>
+        </article>
+      </section>
+
+      <!-- Tables / lists -->
+      <section class="grid gap-4 lg:grid-cols-[1.5fr_minmax(0,1fr)]">
+        <section class="dash-card rounded-2xl border border-slate-800 bg-slate-900/70 px-4 py-4 flex flex-col gap-3 overflow-hidden">
+          <header class="flex items-center justify-between">
+            <h2 class="text-sm font-semibold">Latest community reports</h2>
+            <button class="text-[11px] text-sky-400 hover:text-sky-300">View all</button>
+          </header>
+          <div class="overflow-x-auto text-xs">
+            <table class="w-full border-collapse min-w-[420px]">
+              <thead class="text-slate-400">
                 <tr>
-                  <th>ID</th>
-                  <th>Category</th>
-                  <th>Location</th>
-                  <th>Status</th>
+                  <th class="py-1.5 text-left">ID</th>
+                  <th class="py-1.5 text-left">Category</th>
+                  <th class="py-1.5 text-left">Location</th>
+                  <th class="py-1.5 text-left">Status</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>#R-2031</td>
+              <tbody class="text-[11px]">
+                <tr class="odd:bg-slate-900/60">
+                  <td class="py-1.5">#R-2031</td>
                   <td>Broken road</td>
                   <td>Purok 3, Barangay A</td>
-                  <td><span class="badge badge-muted">Open</span></td>
+                  <td><span class="inline-flex px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">Open</span></td>
                 </tr>
-                <tr>
-                  <td>#R-2032</td>
+                <tr class="odd:bg-slate-900/60">
+                  <td class="py-1.5">#R-2032</td>
                   <td>Electricity outage</td>
                   <td>Purok 5, Barangay B</td>
-                  <td><span class="badge badge-success">Resolved</span></td>
+                  <td><span class="inline-flex px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400">Resolved</span></td>
                 </tr>
-                <tr>
-                  <td>#R-2033</td>
+                <tr class="odd:bg-slate-900/60">
+                  <td class="py-1.5">#R-2033</td>
                   <td>Sewage problem</td>
                   <td>Zone 2, Barangay C</td>
-                  <td><span class="badge badge-muted">In-progress</span></td>
+                  <td><span class="inline-flex px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">In-progress</span></td>
                 </tr>
-                <tr>
-                  <td>#R-2034</td>
+                <tr class="odd:bg-slate-900/60">
+                  <td class="py-1.5">#R-2034</td>
                   <td>Canal clogging</td>
                   <td>Purok 1, Barangay D</td>
-                  <td><span class="badge badge-muted">Open</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="card list-card">
-            <div class="card-header">
-              <h2>Quick Admin Actions</h2>
-            </div>
-            <ul class="list">
-              <li>Assign open reports to responders</li>
-              <li>Prioritize critical issues (flooding, no electricity)</li>
-              <li>Notify reporting citizen about status updates</li>
-              <li>Export weekly report for the mayor's office</li>
-            </ul>
-          </div>
-        </section>
-      </section>
-
-      <section class="view hidden" id="view-reports">
-        <section class="grid grid-2">
-          <div class="card">
-            <div class="card-header">
-              <h2>Reports Summary</h2>
-            </div>
-            <p class="muted">Overview of all community issue reports across the city.</p>
-            <ul class="list">
-              <li>Filter by barangay, category, or date range</li>
-              <li>Identify hotspots for broken roads or flooding</li>
-              <li>Monitor which departments respond the fastest</li>
-            </ul>
-          </div>
-          <div class="card table-card">
-            <div class="card-header">
-              <h2>Reports by Category</h2>
-            </div>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Open</th>
-                  <th>In-Progress</th>
-                  <th>Resolved</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Broken roads</td>
-                  <td>14</td>
-                  <td>9</td>
-                  <td>63</td>
-                </tr>
-                <tr>
-                  <td>Electricity issues</td>
-                  <td>6</td>
-                  <td>8</td>
-                  <td>41</td>
-                </tr>
-                <tr>
-                  <td>Sewage system</td>
-                  <td>11</td>
-                  <td>7</td>
-                  <td>32</td>
-                </tr>
-                <tr>
-                  <td>Canal / drainage</td>
-                  <td>7</td>
-                  <td>5</td>
-                  <td>28</td>
+                  <td><span class="inline-flex px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">Open</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
-      </section>
 
-      <section class="view hidden" id="view-records">
-        <section class="grid grid-2">
-          <div class="card table-card">
-            <div class="card-header">
-              <h2>All Report Records</h2>
-            </div>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Category</th>
-                  <th>Location</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>#R-1998</td>
-                  <td>Broken road</td>
-                  <td>Barangay A, Purok 2</td>
-                  <td><span class="badge badge-success">Resolved</span></td>
-                </tr>
-                <tr>
-                  <td>#R-2005</td>
-                  <td>Electricity issue</td>
-                  <td>Barangay B, Purok 1</td>
-                  <td><span class="badge badge-muted">In-progress</span></td>
-                </tr>
-                <tr>
-                  <td>#R-2012</td>
-                  <td>Sewage problem</td>
-                  <td>Barangay C, Zone 4</td>
-                  <td><span class="badge badge-muted">Open</span></td>
-                </tr>
-                <tr>
-                  <td>#R-2020</td>
-                  <td>Canal clogging</td>
-                  <td>Barangay D, Purok 6</td>
-                  <td><span class="badge badge-success">Resolved</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="card list-card">
-            <div class="card-header">
-              <h2>Record Management</h2>
-            </div>
-            <ul class="list">
-              <li>Search records by ID, location, or resident name</li>
-              <li>Update status (Open, In-progress, Resolved)</li>
-              <li>Attach notes from field inspectors</li>
-              <li>Archive old records after resolution</li>
-            </ul>
-          </div>
+        <section class="dash-card rounded-2xl border border-slate-800 bg-slate-900/70 px-4 py-4 flex flex-col gap-3 text-xs">
+          <h2 class="text-sm font-semibold">Quick admin actions</h2>
+          <ul class="space-y-2 text-slate-300">
+            <li>Assign open reports to responders</li>
+            <li>Prioritize critical issues (flooding, no electricity)</li>
+            <li>Notify reporting citizens about status updates</li>
+            <li>Export weekly report for the mayor's office</li>
+          </ul>
         </section>
       </section>
     </main>
-    <nav class="mobile-bottom-nav">
-      <button class="mobile-nav-item active" data-view="dashboard">Dashboard</button>
-      <button class="mobile-nav-item" data-view="reports">Reports</button>
-      <button class="mobile-nav-item" data-view="records">Records</button>
-    </nav>
   </div>
-  <script src="../assets/js/script.js"></script>
-  </body>
+
+  <script src="../assets/js/sidebar.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
 </html>
